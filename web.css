@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #202020;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.page {
+    position: relative;
+
+    width: 96%;
+    height: 92vh;
+
+    margin: 4vh auto;
+
+    background-image: url("background.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   SMART CIRCUITS LOGO
+========================= */
+
+.logo-box {
+    position: absolute;
+
+    top: 22px;
+    left: 18px;
+
+    width: 290px;
+    height: 290px;
+
+    overflow: hidden;
+
+    border-radius: 70px 70px 70px 25px;
+}
+
+.logo-box img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   LOGIN PANEL
+========================= */
+
+.login-panel {
+    position: absolute;
+
+    top: 22px;
+    right: 28px;
+
+    /* Smaller blue panel */
+    width: 45%;
+    height: 88%;
+
+    background: #28547e;
+
+    border-radius: 130px 130px 100px 100px;
+
+    padding: 50px 55px 25px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.login-panel h1 {
+    margin-bottom: 25px;
+
+    color: #70b8e6;
+
+    font-size: 38px;
+
+    line-height: 1.45;
+
+    font-weight: 800;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.login-panel input {
+    width: 100%;
+    height: 52px;
+
+    display: block;
+
+    margin-bottom: 26px;
+
+    padding: 0 15px;
+
+    border: none;
+    outline: none;
+
+    background: #ded4d4;
+
+    color: #111;
+
+    font-size: 20px;
+
+    text-align: center;
+}
+
+.login-panel input::placeholder {
+    color: #111;
+    opacity: 1;
+}
+
+
+/* =========================
+   FORGOT PASSWORD
+========================= */
+
+.forgot {
+    display: block;
+
+    margin-top: -12px;
+    margin-left: 5px;
+    margin-bottom: 30px;
+
+    color: #6c9ab8;
+
+    font-size: 18px;
+
+    text-align: left;
+
+    text-decoration: none;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-button {
+    width: 200px;
+    height: 52px;
+
+    border: none;
+    border-radius: 35px;
+
+    background: #7087ed;
+
+    color: #111;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background: #8298f5;
+}
+
+
+/* =========================
+   LOGIN WITH
+========================= */
+
+.login-with {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 27px;
+    margin-bottom: 18px;
+}
+
+.login-with span {
+    flex: 1;
+
+    height: 1px;
+
+    background: #151515;
+}
+
+.login-with p {
+    color: #151515;
+
+    font-size: 20px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   GOOGLE BUTTON
+========================= */
+
+.google-button {
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 55px;
+
+    border: none;
+
+    background: #ded4d4;
+
+    color: #222;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+.google-icon {
+    font-size: 27px;
+
+    font-weight: bold;
+
+    color: #4285f4;
+}
+
+.google-button:hover {
+    background: #eee5e5;
+}
+
+
+/* =========================
+   SMALL LAPTOP
+========================= */
+
+@media (max-width: 1000px) {
+
+    .login-panel {
+        width: 48%;
+        height: 88%;
+
+        padding: 40px 35px 20px;
+    }
+
+    .logo-box {
+        width: 230px;
+        height: 230px;
+    }
+
+    .login-panel h1 {
+        font-size: 30px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .page {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .logo-box {
+        display: none;
+    }
+
+    .login-panel {
+        width: 90%;
+        height: auto;
+
+        top: 50%;
+        left: 50%;
+        right: auto;
+
+        transform: translate(-50%, -50%);
+
+        padding: 45px 30px 30px;
+
+        border-radius: 70px;
+    }
+
+    .login-panel h1 {
+        font-size: 27px;
+    }
+}

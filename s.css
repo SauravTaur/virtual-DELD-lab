@@ -1,0 +1,537 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", Arial, sans-serif;
+    background: #eeeeee;
+    color: white;
+}
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: #eeeeee;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #07304a;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 185px 12px 25px;
+}
+
+.sidebar-menu {
+    width: 100%;
+}
+
+.menu-item {
+    height: 46px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 0 14px;
+    margin-bottom: 8px;
+
+    border-radius: 9px;
+
+    color: #f4f4f4;
+    font-size: 20px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #164764;
+}
+
+.menu-item.active {
+    background: #28afd0;
+    color: #111111;
+}
+
+.menu-icon {
+    width: 26px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.sidebar-bottom {
+    padding-left: 20px;
+}
+
+.sidebar-bottom h2 {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #eeeeee;
+}
+
+.sidebar-bottom p {
+    color: #2bb2d0;
+    font-size: 15px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    background: #eeeeee;
+}
+
+
+/* =========================================
+   TOP HEADER
+========================================= */
+
+.top-header {
+    height: 68px;
+    background: #07304a;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid #52606a;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chip-logo {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+    color: #2c8db1;
+}
+
+.logo-area span {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification {
+    font-size: 25px;
+    color: #aeb8bd;
+    margin-right: 8px;
+}
+
+.profile-circle {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    border: 3px solid white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    background: #89949a;
+}
+
+.username {
+    font-size: 17px;
+    margin-left: 2px;
+}
+
+.arrow {
+    font-size: 25px;
+    margin-left: 3px;
+}
+
+
+/* =========================================
+   WELCOME
+========================================= */
+
+.welcome {
+    height: 160px;
+    margin: 8px 0 8px 10px;
+
+    background:
+        linear-gradient(
+            rgba(20, 37, 49, 0.60),
+            rgba(20, 37, 49, 0.60)
+        ),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+.welcome-overlay {
+    padding: 14px 55px;
+}
+
+.welcome-small {
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+.welcome h1 {
+    color: #164f9a;
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-top: -2px;
+}
+
+.welcome-text {
+    color: #101010;
+    font-size: 18px;
+    line-height: 1.25;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.stat-card {
+    height: 132px;
+    padding: 12px 18px;
+    position: relative;
+}
+
+.experiments-card {
+    background: #a93664;
+}
+
+.completed-card {
+    background: #45516e;
+}
+
+.progress-card {
+    background: #2c6873;
+}
+
+.stat-icon {
+    font-size: 29px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.stat-number {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-label span {
+    font-size: 27px;
+}
+
+
+/* =========================================
+   RECENT EXPERIMENTS
+========================================= */
+
+.recent-section {
+    background: #07366c;
+    margin: 8px 0 0 10px;
+    min-height: 350px;
+}
+
+.recent-header {
+    height: 45px;
+
+    background: #0c3f7d;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+}
+
+.recent-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 22px;
+}
+
+.recent-icon {
+    font-size: 22px;
+}
+
+.view-all {
+    color: #22b7cf;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   EXPERIMENT ROW
+========================================= */
+
+.experiment {
+    min-height: 74px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 8px 16px;
+
+    gap: 15px;
+}
+
+.experiment:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.experiment-icon {
+    width: 50px;
+    height: 48px;
+
+    background: #252d35;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 36px;
+
+    flex-shrink: 0;
+}
+
+.and-icon {
+    color: white;
+}
+
+.or-icon {
+    color: white;
+}
+
+.chip-icon {
+    font-size: 34px;
+}
+
+.mux-icon {
+    font-size: 38px;
+}
+
+.experiment-info {
+    flex: 1;
+}
+
+.experiment-info h3 {
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.experiment-info p {
+    font-size: 15px;
+    color: #eeeeee;
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status {
+    min-width: 125px;
+
+    text-align: center;
+
+    padding: 9px 13px;
+
+    border-radius: 20px;
+
+    font-size: 15px;
+
+    margin-left: 10px;
+}
+
+.status.completed {
+    background: #007b78;
+    color: #12d0c8;
+}
+
+.status.progress {
+    background: #c0c900;
+    color: white;
+}
+
+.status.not-started {
+    background: #1666ad;
+    color: white;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .content {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+    }
+
+    .menu-item {
+        font-size: 17px;
+    }
+
+    .welcome-overlay {
+        padding-left: 30px;
+    }
+
+    .experiment-info h3 {
+        font-size: 18px;
+    }
+
+    .experiment-info p {
+        font-size: 13px;
+    }
+
+    .status {
+        min-width: 105px;
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 65px;
+        padding: 90px 8px 20px;
+    }
+
+    .content {
+        margin-left: 65px;
+        width: calc(100% - 65px);
+    }
+
+    .menu-item {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .menu-item span:last-child {
+        display: none;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .username {
+        display: none;
+    }
+
+    .welcome {
+        margin-left: 5px;
+    }
+
+    .welcome-overlay {
+        padding: 12px 20px;
+    }
+
+    .welcome-small {
+        font-size: 20px;
+    }
+
+    .welcome h1 {
+        font-size: 24px;
+    }
+
+    .welcome-text {
+        font-size: 14px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        margin-left: 5px;
+    }
+
+    .recent-section {
+        margin-left: 5px;
+    }
+
+    .experiment {
+        gap: 8px;
+    }
+
+    .experiment-info p {
+        font-size: 12px;
+    }
+
+    .status {
+        min-width: 80px;
+        font-size: 11px;
+        padding: 7px;
+    }
+}
