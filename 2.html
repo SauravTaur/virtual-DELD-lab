@@ -1,276 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual World - Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual World - Home</title>
 
-    <link rel="stylesheet" href="s.css">
+  <!-- js gate: set before stylesheet to guard animated states -->
+  <script>document.documentElement.classList.add('js')</script>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts: Inter for editorial hierarchy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Design system then page styles -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="s.css">
+  <link rel="icon" href="assets/favicon.svg">
 </head>
 
 <body>
 
-    <div class="main-container">
+  <div class="main-container">
 
-        <!-- ================= SIDEBAR ================= -->
-        <aside class="sidebar">
+    <!-- ═══════════════════════════════════════════════════════
+         SIDEBAR
+         ═══════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
 
-            <div class="sidebar-menu">
+      <!-- Logo / wordmark area (added for structure — no existing logic) -->
+      <div class="sidebar-logo">
+        <!-- Chip IC icon in amber -->
+        <svg viewBox="0 0 22 22" fill="none" width="18" height="18" aria-hidden="true">
+          <rect x="6" y="6" width="10" height="10" rx="1" stroke="#e9a020" stroke-width="1.5"/>
+          <line x1="9"  y1="3"  x2="9"  y2="6"  stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="13" y1="3"  x2="13" y2="6"  stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9"  y1="16" x2="9"  y2="19" stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="13" y1="16" x2="13" y2="19" stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="3"  y1="9"  x2="6"  y2="9"  stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="3"  y1="13" x2="6"  y2="13" stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="16" y1="9"  x2="19" y2="9"  stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="16" y1="13" x2="19" y2="13" stroke="#e9a020" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Smart Circuits</span>
+      </div>
 
-                <div class="menu-item active">
-                    <span class="menu-icon">⌂</span>
-                    <span>Home</span>
-                </div>
+      <div class="sidebar-menu">
 
-                <div class="menu-item">
-                    <span class="menu-icon">⚙</span>
-                    <span>Experiments</span>
-                </div>
+        <div class="menu-item active">
+          <span class="menu-icon">
+            <!-- Home -->
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M10 2.2L2 9.4V18h5.5v-5h5v5H18V9.4L10 2.2z"/>
+            </svg>
+          </span>
+          <span>Home</span>
+        </div>
 
-                <div class="menu-item">
-                    <span class="menu-icon">▱</span>
-                    <span>Lab Resources</span>
-                </div>
+        <div class="menu-item">
+          <span class="menu-icon">
+            <!-- Flask / Experiments -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <path d="M7.5 2v6.5L3 16h14L12.5 8.5V2"/>
+              <line x1="6" y1="2" x2="14" y2="2"/>
+            </svg>
+          </span>
+          <span>Experiments</span>
+        </div>
 
-                <div class="menu-item">
-                    <span class="menu-icon">▥</span>
-                    <span>My Progress</span>
-                </div>
+        <div class="menu-item">
+          <span class="menu-icon">
+            <!-- Folder / Lab Resources -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <path d="M2 7h7l2 2h7v9H2z"/>
+              <line x1="2" y1="11" x2="18" y2="11"/>
+            </svg>
+          </span>
+          <span>Lab Resources</span>
+        </div>
 
-                <div class="menu-item">
-                    <span class="menu-icon">♙</span>
-                    <span>Profile</span>
-                </div>
+        <div class="menu-item">
+          <span class="menu-icon">
+            <!-- Bar chart / Progress -->
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <rect x="2"  y="13" width="4" height="5"/>
+              <rect x="8"  y="8"  width="4" height="10"/>
+              <rect x="14" y="5"  width="4" height="13"/>
+            </svg>
+          </span>
+          <span>My Progress</span>
+        </div>
 
-                <div class="menu-item">
-                    <span class="menu-icon">⚙</span>
-                    <span>Settings</span>
-                </div>
+        <div class="menu-item">
+          <span class="menu-icon">
+            <!-- Person / Profile -->
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <circle cx="10" cy="6" r="3.5"/>
+              <path d="M3.5 18a6.5 6.5 0 0113 0z"/>
+            </svg>
+          </span>
+          <span>Profile</span>
+        </div>
 
+        <div class="menu-item">
+          <span class="menu-icon">
+            <!-- Gear / Settings -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="18" height="18" aria-hidden="true">
+              <circle cx="10" cy="10" r="2.5"/>
+              <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.93 4.93l1.41 1.41M13.66 13.66l1.41 1.41M4.93 15.07l1.41-1.41M13.66 6.34l1.41-1.41"/>
+            </svg>
+          </span>
+          <span>Settings</span>
+        </div>
+
+      </div>
+
+      <div class="sidebar-bottom">
+        <h2>smart circuits</h2>
+        <p>Learn&nbsp; • &nbsp;Build&nbsp; • &nbsp;Explore</p>
+      </div>
+
+    </aside>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         MAIN CONTENT
+         ═══════════════════════════════════════════════════════ -->
+    <main class="content">
+
+      <!-- TOP HEADER -->
+      <header class="top-header">
+
+        <div class="logo-area">
+          <div class="chip-logo">
+            <!-- Circuit chip icon — matches sidebar -->
+            <svg viewBox="0 0 24 24" fill="none" width="28" height="28" aria-hidden="true">
+              <rect x="7" y="7" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="10" y1="4"  x2="10" y2="7"  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="14" y1="4"  x2="14" y2="7"  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="10" y1="17" x2="10" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="14" y1="17" x2="14" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="4"  y1="10" x2="7"  y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="4"  y1="14" x2="7"  y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="17" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="17" y1="14" x2="20" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>Virtual World</span>
+        </div>
+
+        <div class="user-area">
+
+          <span class="notification" title="Notifications">
+            <!-- Bell -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="20" height="20" aria-hidden="true">
+              <path d="M10 2a5.5 5.5 0 00-5.5 5.5c0 2.8-1.8 4-1.8 4H17.3s-1.8-1.2-1.8-4A5.5 5.5 0 0010 2z"/>
+              <path d="M11.7 16.5a2 2 0 01-3.4 0"/>
+            </svg>
+          </span>
+
+          <!-- Profile initials (kept from original intent) -->
+          <div class="profile-circle">SJ</div>
+
+          <span class="username">Shweta Jadhav</span>
+
+          <span class="arrow" aria-hidden="true">
+            <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="12" height="8">
+              <polyline points="1,1 6,7 11,1"/>
+            </svg>
+          </span>
+
+        </div>
+
+      </header>
+
+
+      <!-- WELCOME SECTION — flat dark field, large personal greeting -->
+      <section class="welcome">
+        <div class="welcome-overlay">
+          <p class="welcome-small">Welcome back,</p>
+          <h1>Shweta Jadhav</h1>
+          <p class="welcome-text">
+            Explore. Experiment. Build your skills in Digital
+            Electronics and Logic Design.
+          </p>
+        </div>
+      </section>
+
+
+      <!-- STATISTICS — asymmetric bento (total spans both rows) -->
+      <section class="stats" aria-label="Progress overview">
+
+        <div class="stat-card experiments-card" data-reveal style="--delay:0ms">
+          <div class="stat-icon">
+            <!-- Circuit icon for "all experiments" -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20" aria-hidden="true">
+              <rect x="3" y="3" width="14" height="14" rx="1"/>
+              <line x1="7"  y1="3"  x2="7"  y2="17"/>
+              <line x1="13" y1="3"  x2="13" y2="17"/>
+              <line x1="3"  y1="8"  x2="17" y2="8"/>
+              <line x1="3"  y1="12" x2="17" y2="12"/>
+            </svg>
+          </div>
+          <div class="stat-number" data-count="5">5</div>
+          <div class="stat-label">Total Experiments <span>→</span></div>
+        </div>
+
+        <div class="stat-card completed-card" data-reveal style="--delay:60ms">
+          <div class="stat-icon">
+            <!-- Check / completed -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="20" height="20" aria-hidden="true">
+              <circle cx="10" cy="10" r="8"/>
+              <polyline points="6,10 9,13 14,7"/>
+            </svg>
+          </div>
+          <div class="stat-number" data-count="2">2</div>
+          <div class="stat-label">Completed <span>→</span></div>
+        </div>
+
+        <div class="stat-card progress-card" data-reveal style="--delay:120ms">
+          <div class="stat-icon">
+            <!-- Clock / in-progress -->
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="20" height="20" aria-hidden="true">
+              <circle cx="10" cy="10" r="8"/>
+              <polyline points="10,5 10,10 14,13"/>
+            </svg>
+          </div>
+          <div class="stat-number" data-count="3">3</div>
+          <div class="stat-label">In Progress <span>→</span></div>
+        </div>
+
+      </section>
+
+
+      <!-- RECENT EXPERIMENTS — editorial list with gate schematics -->
+      <section class="recent-section">
+
+        <div class="recent-header">
+          <div class="recent-title">
+            <span class="recent-icon">
+              <!-- Network / circuit icon -->
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" width="16" height="16" aria-hidden="true">
+                <circle cx="3"  cy="8" r="1.5"/>
+                <circle cx="13" cy="8" r="1.5"/>
+                <circle cx="8"  cy="3" r="1.5"/>
+                <circle cx="8"  cy="13" r="1.5"/>
+                <line x1="4.5"  y1="8"  x2="11.5" y2="8"/>
+                <line x1="8"    y1="4.5" x2="8"   y2="11.5"/>
+              </svg>
+            </span>
+            <span>Recent Experiments</span>
+          </div>
+          <div class="view-all" id="view-all-btn">View All &nbsp;→</div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar" role="tablist" aria-label="Experiment status filter">
+          <button class="filter-btn active" data-filter="all">All (4)</button>
+          <button class="filter-btn" data-filter="completed">Completed (2)</button>
+          <button class="filter-btn" data-filter="progress">In Progress (1)</button>
+          <button class="filter-btn" data-filter="not-started">Not Started (1)</button>
+        </div>
+
+        <!-- Skeleton Loading Container (for async simulation) -->
+        <div id="skeleton-container" style="display: none;" aria-hidden="true">
+          <div class="skeleton-row">
+            <div class="skeleton-box skeleton-icon"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-box skeleton-title"></div>
+              <div class="skeleton-box skeleton-desc"></div>
+            </div>
+            <div class="skeleton-box skeleton-pill"></div>
+          </div>
+          <div class="skeleton-row">
+            <div class="skeleton-box skeleton-icon"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-box skeleton-title"></div>
+              <div class="skeleton-box skeleton-desc"></div>
+            </div>
+            <div class="skeleton-box skeleton-pill"></div>
+          </div>
+        </div>
+
+        <!-- Experiment List -->
+        <div id="experiments-list">
+
+          <!-- AND GATE -->
+          <div class="experiment" data-status="completed" data-reveal style="--delay:0ms">
+            <div class="experiment-icon and-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-label="AND gate">
+                <path d="M 10,12 L 26,12 A 14,14 0 0 1 26,36 L 10,36 Z"/>
+                <line x1="4"  y1="20" x2="10" y2="20"/>
+                <line x1="4"  y1="28" x2="10" y2="28"/>
+                <line x1="40" y1="24" x2="44" y2="24"/>
+              </svg>
             </div>
 
-
-            <div class="sidebar-bottom">
-                <h2>smart circuits</h2>
-                <p>Learn&nbsp; • &nbsp;Build&nbsp; • &nbsp;Explore</p>
+            <div class="experiment-info">
+              <h3>AND Gate</h3>
+              <p>Design and simulate a 2-input AND gate using basic logic gates.</p>
             </div>
 
-        </aside>
-
-
-        <!-- ================= MAIN AREA ================= -->
-        <main class="content">
-
-            <!-- TOP HEADER -->
-            <header class="top-header">
-
-                <div class="logo-area">
-                    <div class="chip-logo">▦</div>
-                    <span>Virtual World</span>
-                </div>
-
-                <div class="user-area">
-
-                    <span class="notification">♟</span>
-
-                    <div class="profile-circle">♙</div>
-
-                    <span class="username">Shweta Jadhav</span>
-
-                    <span class="arrow">⌄</span>
-
-                </div>
-
-            </header>
-
-
-            <!-- WELCOME SECTION -->
-            <section class="welcome">
-
-                <div class="welcome-overlay">
-
-                    <p class="welcome-small">Welcome back,</p>
-
-                    <h1>Shweta Jadhav</h1>
-
-                    <p class="welcome-text">
-                        Explore. Experiment. Build your skills in Digital
-                        <br>
-                        Electronics and Logic Design.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-            <!-- STATISTICS -->
-            <section class="stats">
-
-                <div class="stat-card experiments-card">
-
-                    <div class="stat-icon">⌂</div>
-
-                    <div class="stat-number">5</div>
-
-                    <div class="stat-label">
-                        Total Experiments
-                        <span>→</span>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card completed-card">
-
-                    <div class="stat-icon">▤</div>
-
-                    <div class="stat-number">2</div>
-
-                    <div class="stat-label">
-                        Completed
-                        <span>→</span>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card progress-card">
-
-                    <div class="stat-icon">◷</div>
-
-                    <div class="stat-number">3</div>
-
-                    <div class="stat-label">
-                        In Progress
-                        <span>→</span>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- RECENT EXPERIMENTS -->
-            <section class="recent-section">
-
-                <div class="recent-header">
-
-                    <div class="recent-title">
-                        <span class="recent-icon">⚙</span>
-                        <span>Recent Experiments</span>
-                    </div>
-
-                    <div class="view-all">
-                        View All&nbsp; →
-                    </div>
-
-                </div>
-
-
-                <!-- AND GATE -->
-                <div class="experiment">
-
-                    <div class="experiment-icon and-icon">
-                        ⊃
-                    </div>
-
-                    <div class="experiment-info">
-
-                        <h3>AND Gate</h3>
-
-                        <p>
-                            Design and simulate a 2-input AND gate using basic logic gates.
-                        </p>
-
-                    </div>
-
-                    <div class="status completed">
-                        completed
-                    </div>
-
-                </div>
-
-
-                <!-- OR GATE -->
-                <div class="experiment">
-
-                    <div class="experiment-icon or-icon">
-                        ⊃
-                    </div>
-
-                    <div class="experiment-info">
-
-                        <h3>OR Gate</h3>
-
-                        <p>
-                            Design and simulate a 2-input OR gate using basic logic gates
-                        </p>
-
-                    </div>
-
-                    <div class="status completed">
-                        completed
-                    </div>
-
-                </div>
-
-
-                <!-- HALF ADDER -->
-                <div class="experiment">
-
-                    <div class="experiment-icon chip-icon">
-                        ▦
-                    </div>
-
-                    <div class="experiment-info">
-
-                        <h3>Half Adder</h3>
-
-                        <p>
-                            Implement a half adder using basic logic gates.
-                        </p>
-
-                    </div>
-
-                    <div class="status progress">
-                        In Progress
-                    </div>
-
-                </div>
-
-
-                <!-- MULTIPLEXER -->
-                <div class="experiment">
-
-                    <div class="experiment-icon mux-icon">
-                        ▷
-                    </div>
-
-                    <div class="experiment-info">
-
-                        <h3>Multiplexer (MUX)</h3>
-
-                        <p>
-                            Design 2:1 and 4:1 MUX using logic gates.
-                        </p>
-
-                    </div>
-
-                    <div class="status not-started">
-                        Not Started
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
-
-    </div>
+            <div class="status completed">completed</div>
+          </div>
+
+
+          <!-- OR GATE -->
+          <div class="experiment" data-status="completed" data-reveal style="--delay:55ms">
+            <div class="experiment-icon or-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-label="OR gate">
+                <path d="M 10,12 Q 22,12 32,24 Q 22,36 10,36 Q 16,30 16,24 Q 16,18 10,12 Z"/>
+                <line x1="4"  y1="20" x2="14" y2="20"/>
+                <line x1="4"  y1="28" x2="14" y2="28"/>
+                <line x1="32" y1="24" x2="44" y2="24"/>
+              </svg>
+            </div>
+
+            <div class="experiment-info">
+              <h3>OR Gate</h3>
+              <p>Design and simulate a 2-input OR gate using basic logic gates</p>
+            </div>
+
+            <div class="status completed">completed</div>
+          </div>
+
+
+          <!-- HALF ADDER -->
+          <div class="experiment" data-status="progress" data-reveal style="--delay:110ms">
+            <div class="experiment-icon chip-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-label="Half Adder">
+                <rect x="12" y="10" width="24" height="28" rx="2"/>
+                <text x="24" y="28" text-anchor="middle" fill="currentColor" font-size="9" font-family="system-ui, sans-serif" stroke="none" font-weight="600">HA</text>
+                <line x1="4"  y1="18" x2="12" y2="18"/>
+                <line x1="4"  y1="30" x2="12" y2="30"/>
+                <line x1="36" y1="18" x2="44" y2="18"/>
+                <line x1="36" y1="30" x2="44" y2="30"/>
+              </svg>
+            </div>
+
+            <div class="experiment-info">
+              <h3>Half Adder</h3>
+              <p>Implement a half adder using basic logic gates.</p>
+            </div>
+
+            <div class="status progress">In Progress</div>
+          </div>
+
+
+          <!-- MULTIPLEXER -->
+          <div class="experiment" data-status="not-started" data-reveal style="--delay:165ms">
+            <div class="experiment-icon mux-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-label="Multiplexer">
+                <polygon points="10,7 38,15 38,33 10,41"/>
+                <line x1="3"  y1="17" x2="10" y2="17"/>
+                <line x1="3"  y1="24" x2="10" y2="24"/>
+                <line x1="3"  y1="31" x2="10" y2="31"/>
+                <line x1="38" y1="24" x2="45" y2="24"/>
+              </svg>
+            </div>
+
+            <div class="experiment-info">
+              <h3>Multiplexer (MUX)</h3>
+              <p>Design 2:1 and 4:1 MUX using logic gates.</p>
+            </div>
+
+            <div class="status not-started">Not Started</div>
+          </div>
+
+        </div>
+
+        <!-- Clean Empty State (hidden by default) -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+          <div class="empty-state-icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40" aria-hidden="true">
+              <circle cx="16" cy="16" r="13"/>
+              <line x1="16" y1="10" x2="16" y2="17"/>
+              <circle cx="16" cy="22" r="1.2" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>No Experiments Found</h3>
+          <p>No lab modules match the selected filter criteria. Reset the filter to view all available modules.</p>
+          <button class="btn-reset" id="btn-reset-filter" type="button">Reset Filter</button>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Feedback Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MOTION & INTERACTION LAYER
+       ═══════════════════════════════════════════════════════ -->
+  <script>
+    // ── Toast notification helper ────────────────────────────────
+    function showToast(msg, isSuccess) {
+      var container = document.getElementById('toast-container');
+      if (!container) return;
+      var t = document.createElement('div');
+      t.className = 'toast' + (isSuccess ? ' toast-success' : '');
+      t.textContent = msg;
+      container.appendChild(t);
+      setTimeout(function () {
+        t.style.opacity = '0';
+        t.style.transform = 'translateY(6px)';
+        t.style.transition = 'opacity 200ms ease, transform 200ms ease';
+        setTimeout(function () { t.remove(); }, 220);
+      }, 3000);
+    }
+
+    // ── Scroll reveal (data-reveal pattern from motion.md §4) ─────
+    (function () {
+      var els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      els.forEach(function (el) { io.observe(el); });
+    }());
+
+    // ── Stat count-up ─────────────────────────────────────────────
+    (function () {
+      document.querySelectorAll('.stat-number[data-count]').forEach(function (el) {
+        var target = +el.dataset.count;
+        var dur    = 900;
+        var start  = null;
+        var io2 = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting) return;
+          io2.disconnect();
+          function tick(ts) {
+            if (!start) start = ts;
+            var pct = Math.min((ts - start) / dur, 1);
+            el.textContent = Math.ceil(pct * target);
+            if (pct < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }, { threshold: 0.5 });
+        io2.observe(el);
+      });
+    }());
+
+    // ── Filtering and Empty State ─────────────────────────────────
+    (function () {
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var experiments = document.querySelectorAll('.experiment');
+      var emptyState = document.getElementById('empty-state');
+      var expList = document.getElementById('experiments-list');
+      var resetBtn = document.getElementById('btn-reset-filter');
+
+      function applyFilter(filter) {
+        filterBtns.forEach(function (b) {
+          b.classList.toggle('active', b.dataset.filter === filter);
+        });
+        var count = 0;
+        experiments.forEach(function (exp) {
+          var match = (filter === 'all' || exp.dataset.status === filter);
+          exp.style.display = match ? 'flex' : 'none';
+          if (match) count++;
+        });
+        if (count === 0) {
+          expList.style.display = 'none';
+          emptyState.style.display = 'flex';
+        } else {
+          expList.style.display = 'block';
+          emptyState.style.display = 'none';
+        }
+      }
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyFilter(btn.dataset.filter);
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+          applyFilter('all');
+        });
+      }
+    }());
+
+    // ── Simulated Async Fetch with Fluid Skeletons ────────────────
+    (function () {
+      var viewAll = document.getElementById('view-all-btn');
+      var skel = document.getElementById('skeleton-container');
+      var list = document.getElementById('experiments-list');
+      if (viewAll && skel && list) {
+        viewAll.addEventListener('click', function () {
+          list.style.display = 'none';
+          skel.style.display = 'block';
+          showToast('Refreshing laboratory catalog...');
+          setTimeout(function () {
+            skel.style.display = 'none';
+            list.style.display = 'block';
+            showToast('Catalog synchronized (4 experiments available).', true);
+          }, 600);
+        });
+      }
+    }());
+
+    // ── Experiment Click & Micro-interactions ─────────────────────
+    (function () {
+      document.querySelectorAll('.experiment').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var title = el.querySelector('h3').textContent;
+          showToast('Initializing ' + title + ' circuit workbench...', true);
+        });
+      });
+
+      document.querySelectorAll('.menu-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+          document.querySelectorAll('.menu-item').forEach(function (m) { m.classList.remove('active'); });
+          item.classList.add('active');
+          var name = item.querySelector('span:last-child').textContent;
+          showToast('Navigated to ' + name);
+        });
+      });
+
+      var notif = document.querySelector('.notification');
+      if (notif) {
+        notif.addEventListener('click', function () {
+          showToast('No unread notifications.');
+        });
+      }
+    }());
+  </script>
 
 </body>
 </html>

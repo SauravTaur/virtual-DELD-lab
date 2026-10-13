@@ -3,28 +3,183 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Virtual Deld Lab | Login</title>
+  <title>Virtual DELD Lab | Login</title>
+
+  <!-- js gate: must be first to avoid FOUC on animated elements -->
+  <script>document.documentElement.classList.add('js')</script>
+
+  <!-- Fonts: Inter for editorial hierarchy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Design system then page styles -->
+  <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="p.css">
+  <link rel="icon" href="assets/favicon.svg">
 </head>
 <body>
-  <main class="login-page">
-    <section class="brand-panel" aria-label="Virtual Deld Lab">
-      <div class="circuit circuit-top-left"></div>
-      <div class="circuit circuit-top-right"></div>
-      <div class="circuit circuit-bottom-left"></div>
-      <div class="circuit circuit-bottom-right"></div>
-      <span class="gate gate-and">AND</span>
-      <span class="gate gate-xor">XOR</span>
-      <span class="gate gate-or">OR</span>
 
+  <main class="login-page">
+
+    <!-- ═══════════════════════════════════════════════════
+         BRAND PANEL — dark ground, drawn AND-gate schematic
+         The lab's own artefact (a gate truth table) is the art.
+         ═══════════════════════════════════════════════════ -->
+    <section class="brand-panel" aria-label="Virtual DELD Lab">
+
+      <!--
+        SVG: large AND gate schematic with PCB circuit traces,
+        a truth table, and faint secondary gate outlines.
+        All in amber on the dark ground.
+        Gate: flat left at x=160, semicircle right centred at (300,410) r=120.
+        Rightmost point: (420, 410).
+      -->
+      <svg
+        class="brand-bg-svg"
+        viewBox="0 0 560 760"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <!-- Large "DLD" watermark — the lab's own initials as decoration -->
+        <text
+          x="18" y="220"
+          font-family="system-ui, sans-serif"
+          font-size="220"
+          font-weight="800"
+          fill="none"
+          stroke="#e9a020"
+          stroke-width="0.8"
+          opacity="0.035"
+        >DLD</text>
+
+        <!-- ── Main AND gate body ──────────────────────
+             Path: M160,290 L300,290 A120,120 0 0 1 300,530 L160,530 Z
+             Creates D-shape: flat left x=160, semicircle right (center 300,410, r=120)
+             Rightmost point: (420, 410)
+        ─────────────────────────────────────────────── -->
+        <path
+          d="M 160,290 L 300,290 A 120,120 0 0 1 300,530 L 160,530 Z"
+          stroke="#e9a020"
+          stroke-width="2.5"
+          fill="none"
+          stroke-linejoin="round"
+        />
+
+        <!-- Input wire A (top, ~1/4 from top of gate: y=290+60=350) -->
+        <line x1="20"  y1="350" x2="160" y2="350" stroke="#e9a020" stroke-width="1.6"/>
+        <!-- Input wire B (bottom, ~3/4 from top: y=290+180=470) -->
+        <line x1="20"  y1="470" x2="160" y2="470" stroke="#e9a020" stroke-width="1.6"/>
+        <!-- Output wire Y (rightmost point of arc) -->
+        <line x1="420" y1="410" x2="546" y2="410" stroke="#e9a020" stroke-width="1.6"/>
+
+        <!-- Junction nodes -->
+        <circle cx="20"  cy="350" r="5" fill="#e9a020"/>
+        <circle cx="20"  cy="470" r="5" fill="#e9a020"/>
+        <circle cx="420" cy="410" r="4.5" fill="#e9a020"/>
+
+        <!-- Port labels -->
+        <text x="4"   y="346" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e9a020">A</text>
+        <text x="4"   y="466" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e9a020">B</text>
+        <text x="534" y="406" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e9a020">Y</text>
+
+        <!-- Subtle "AND" label inside gate body -->
+        <text
+          x="246" y="420"
+          font-family="system-ui, sans-serif"
+          font-size="20"
+          font-weight="600"
+          fill="#e9a020"
+          opacity="0.16"
+          text-anchor="middle"
+        >AND</text>
+
+        <!-- ── PCB traces extending from inputs/output ───────
+             L-shaped routing, low opacity — feels like a real board.
+        ─────────────────────────────────────────────────────── -->
+        <!-- From A: up then right -->
+        <polyline points="20,350 20,195 96,195" stroke="#e9a020" stroke-width="1" opacity="0.22"/>
+        <circle cx="96" cy="195" r="3" fill="#e9a020" opacity="0.32"/>
+
+        <!-- From B: down then right -->
+        <polyline points="20,470 20,614 108,614" stroke="#e9a020" stroke-width="1" opacity="0.22"/>
+        <circle cx="108" cy="614" r="3" fill="#e9a020" opacity="0.32"/>
+
+        <!-- From Y: right then down -->
+        <polyline points="546,410 546,556 484,556" stroke="#e9a020" stroke-width="1" opacity="0.22"/>
+        <circle cx="484" cy="556" r="3" fill="#e9a020" opacity="0.32"/>
+
+        <!-- Extra trace from Y going up -->
+        <polyline points="462,410 462,164 384,164" stroke="#e9a020" stroke-width="1" opacity="0.16"/>
+        <circle cx="384" cy="164" r="3" fill="#e9a020" opacity="0.26"/>
+
+        <!-- ── Boolean expression ─────────────────────────── -->
+        <text
+          x="308" y="573"
+          font-family="system-ui, sans-serif"
+          font-size="14"
+          font-weight="600"
+          fill="#e9a020"
+          opacity="0.60"
+        >Y = A · B</text>
+
+        <!-- ── Truth table (the lab's own printed artefact) ─
+             Positioned below gate, right column.
+        ─────────────────────────────────────────────────── -->
+        <g transform="translate(308, 597)" opacity="0.42">
+          <text x="0" y="0"  font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#e9a020">A   B  │  Y</text>
+          <line x1="0" y1="6" x2="116" y2="6" stroke="#e9a020" stroke-width="0.6"/>
+          <text x="0" y="22" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#e9a020">0   0  │  0</text>
+          <text x="0" y="38" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#e9a020">0   1  │  0</text>
+          <text x="0" y="54" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#e9a020">1   0  │  0</text>
+          <text x="0" y="70" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#e9a020">1   1  │  1</text>
+        </g>
+
+        <!-- ── Small NOT gate (decorative, top-right corner) ── -->
+        <g transform="translate(408, 80)" opacity="0.13">
+          <polygon points="0,0 38,19 0,38" stroke="#e9a020" stroke-width="1.5" fill="none"/>
+          <circle cx="44" cy="19" r="4" stroke="#e9a020" stroke-width="1.5" fill="none"/>
+          <line x1="-18" y1="19" x2="0"  y2="19" stroke="#e9a020" stroke-width="1.5"/>
+          <line x1="48"  y1="19" x2="64" y2="19" stroke="#e9a020" stroke-width="1.5"/>
+        </g>
+
+        <!-- ── Small XOR gate outline (bottom-left, faint) ──── -->
+        <g transform="translate(56, 618)" opacity="0.11">
+          <!-- XOR: two concentric curves + extra back curve -->
+          <path d="M 0,0  Q 18,0  28,22 Q 18,44  0,44" stroke="#e9a020" stroke-width="1.5" fill="none"/>
+          <path d="M -6,0 Q 12,0  22,22 Q 12,44 -6,44" stroke="#e9a020" stroke-width="1.5" fill="none"/>
+          <path d="M -12,5 Q  6,5  16,22 Q  6,39 -12,39" stroke="#e9a020" stroke-width="1.5" fill="none"/>
+          <line x1="-28" y1="14" x2="3"  y2="14" stroke="#e9a020" stroke-width="1.5"/>
+          <line x1="-28" y1="30" x2="3"  y2="30" stroke="#e9a020" stroke-width="1.5"/>
+          <line x1="28"  y1="22" x2="48" y2="22" stroke="#e9a020" stroke-width="1.5"/>
+        </g>
+      </svg>
+
+      <!-- ── Brand copy ─────────────────────────────────────
+           Headline: two lines, left-aligned, display size.
+           No eyebrow above the h1 (house rule).
+      ────────────────────────────────────────────────────── -->
       <div class="brand-copy">
-        <div class="brand-mark">DLD</div>
-        <h1>VIRTUAL<br>DELD LAB</h1>
-        <p>Digital Electronics and Logic Design<br>Virtual Laboratory</p>
-        <strong>Learn. Build. Simulate.</strong>
+        <h1 data-rise style="--i:0">VIRTUAL<br>DELD LAB</h1>
+        <p data-rise style="--i:1">
+          Digital Electronics &amp; Logic Design: <br>
+          simulate circuits in your browser.
+        </p>
+        <div class="brand-tagline" data-rise style="--i:2">
+          <span>Logic Gates</span>
+          <span>Boolean Algebra</span>
+          <span>Simulation</span>
+        </div>
       </div>
+
     </section>
 
+    <!-- ═══════════════════════════════════════════════════
+         FORM PANEL — one tone step from ground (surface)
+         Form preserved verbatim (action, method, names, IDs).
+         ═══════════════════════════════════════════════════ -->
     <section class="form-panel">
       <div class="login-card">
         <header>
@@ -45,11 +200,69 @@
           <button class="login-button" type="submit">LOGIN</button>
         </form>
 
-        <p class="signup">Don't have an account? <a href="#create-account">Create account</a></p>
+        <p class="signup">Don't have an account? <a href="#create-account" id="signup-link">Create account</a></p>
         <div class="divider"><span>or</span></div>
-        <button class="guest-button" type="button">Continue as Guest</button>
+        <button class="guest-button" type="button" id="guest-btn">Continue as Guest</button>
       </div>
     </section>
+
   </main>
+
+  <!-- Feedback Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script>
+    function showToast(msg, isSuccess) {
+      var container = document.getElementById('toast-container');
+      if (!container) return;
+      var t = document.createElement('div');
+      t.className = 'toast' + (isSuccess ? ' toast-success' : '');
+      t.textContent = msg;
+      container.appendChild(t);
+      setTimeout(function () {
+        t.style.opacity = '0';
+        t.style.transform = 'translateY(6px)';
+        t.style.transition = 'opacity 200ms ease, transform 200ms ease';
+        setTimeout(function () { t.remove(); }, 220);
+      }, 3000);
+    }
+
+    var loginForm = document.querySelector('form');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function (e) {
+        var u = document.getElementById('username');
+        var p = document.getElementById('password');
+        if (!u.value.trim() || !p.value.trim()) {
+          showToast('Please enter both username and password.');
+          e.preventDefault();
+          return;
+        }
+        showToast('Authenticating session... Redirecting to lab.', true);
+        setTimeout(function () {
+          window.location.href = '2.html';
+        }, 750);
+        e.preventDefault();
+      });
+    }
+
+    var guestBtn = document.getElementById('guest-btn');
+    if (guestBtn) {
+      guestBtn.addEventListener('click', function () {
+        showToast('Guest mode initialized. Launching laboratory...', true);
+        setTimeout(function () {
+          window.location.href = '2.html';
+        }, 600);
+      });
+    }
+
+    var signupLink = document.getElementById('signup-link');
+    if (signupLink) {
+      signupLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        showToast('Registration is managed via the college lab coordinator.');
+      });
+    }
+  </script>
+
 </body>
 </html>

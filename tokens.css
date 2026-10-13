@@ -1,0 +1,131 @@
+/* ============================================================
+   VIRTUAL DELD LAB -- DESIGN TOKENS
+   Import this file first on every page.
+   All colours, type sizes, spacing and motion live here.
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Palette ──────────────────────────────────────────────
+     Ground: deep navy-black.  Surfaces rise in 3 steps.
+     Ink:    warm off-white (not pure white -- avoids harshness).
+     Accent: one saffron-amber -- CTA and active states only.
+     Status: teal-green (ok) · amber-orange (progress) · slate (idle).
+  ────────────────────────────────────────────────────────── */
+  --bg:         #06101f;   /* page ground              */
+  --surface:    #0c1929;   /* sidebar / header level   */
+  --surface-2:  #132236;   /* card / panel level       */
+  --surface-3:  #1c3148;   /* hover / elevated level   */
+  --ink:        #e2ddd4;   /* primary text             */
+  --muted:      #6e8098;   /* secondary text (≥4.5:1)  */
+  --faint:      #3a5068;   /* tertiary / placeholder   */
+
+  --accent:     #e9a020;   /* saffron amber            */
+  --accent-ink: #0a0e18;   /* text on accent bg        */
+  --accent-dim: #261600;   /* accent background field  */
+
+  --ok:         #18a882;   /* completed                */
+  --ok-bg:      #071d17;
+  --warn:       #d48010;   /* in-progress              */
+  --warn-bg:    #1e1100;
+  --idle:       #3c5068;   /* not started              */
+  --idle-bg:    #0e1826;
+
+  /* ── Type ────────────────────────────────────────────────
+     Inter for display, headings, and body.
+     Tabular numbers enabled on the text face for stats/data.
+  ────────────────────────────────────────────────────────── */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; /* taste-skill-ignore */
+
+  /* Scale -- five steps, clearly apart (study: avoid nine near sizes) */
+  --step-small:   clamp(0.75rem,  0.72rem + 0.12vw, 0.8125rem);  /* 12–13px  captions  */
+  --step-body:    clamp(0.9375rem,0.88rem + 0.22vw, 1.0625rem);  /* 15–17px  text      */
+  --step-lead:    clamp(1.125rem, 1.0rem  + 0.5vw,  1.375rem);   /* 18–22px  emphasis  */
+  --step-head:    clamp(1.5rem,   1.1rem  + 1.6vw,  2.25rem);    /* 24–36px  section h */
+  --step-display: clamp(2.5rem,   1.2rem  + 5.2vw,  4.25rem);    /* 40–68px  hero      */
+
+  /* Tracking */
+  --tk-display: -0.035em;
+  --tk-tight:   -0.02em;
+  --tk-caps:     0.02em;   /* all-caps labels only */
+
+  /* Leading */
+  --lh-display: 0.93;
+  --lh-head:    1.1;
+  --lh-body:    1.55;
+  --lh-lead:    1.35;
+
+  /* ── Space -- 8px base ───────────────────────────────────── */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+
+  /* ── Radius ──────────────────────────────────────────────
+     Buttons: 0 (square-cornered, as majority of strong sites).
+     Inputs and small chips: 4px.
+     Cards: 6px.
+  ────────────────────────────────────────────────────────── */
+  --r-none: 0px;
+  --r-sm:   4px;
+  --r-md:   6px;
+
+  /* ── Motion tokens (from motion.md §3) ──────────────────── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft:   cubic-bezier(0.33, 1, 0.68, 1);
+  --t-press:  140ms;
+  --t-hover:  180ms;
+  --t-ui:     240ms;
+  --t-reveal: 800ms;
+}
+
+/* Selection follows the accent */
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Focus ring: accent, 2px, every interactive element */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Custom styled scrollbars (no default browser grey) */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: var(--r-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Global link styles: refined underline, clear of descenders */
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.07em;
+  transition: text-decoration-color var(--t-hover) ease;
+}
+a:hover {
+  text-decoration-color: currentColor;
+}
